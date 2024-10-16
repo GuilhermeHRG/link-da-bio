@@ -1,188 +1,179 @@
-* {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+/* Estilo básico */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+    color: #fff;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
+/* Container principal */
 .main {
     display: flex;
-    width: 100%;
-    height: 100%;
     flex-direction: column;
-    background-image: url("../../assets/bg.jpg");
-    background-size: cover;
-    background-position: center;
-    object-fit: cover;
-    padding: 1rem;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
 }
 
+/* Imagem de perfil */
 .container-profile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
+    position: relative;
+    margin-top: 50px;
 }
 
 .img-profile {
-    min-width: 10rem;
-    max-width: 100px;
-    height: 10rem;
-    margin-top: 2rem;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    margin-bottom: 20px;
-    border: 2px solid #fff;
-    object-fit: auto;
+    border: 1px solid #fff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    object-fit: contain;
+    background-image: url(../../assets/profile.jpg);
+    background-size: cover;
+    background-position: center;
+
 }
 
+.img-profile:hover {
+    transform: scale(1.1);
+}
+
+/* Título e subtítulo */
 .section-title {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-}
-
-.title,
-.subtitle {
-    color: #fff;
-    text-align: center;
+    margin-top: 15px;
 }
 
 .title {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .subtitle {
-    font-size: 1rem;
-    font-weight: 400;
-    background-color: #08ad1650;
-    border-radius: 8px;
-    padding: 0.4rem;
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-top: 5px;
 }
 
+/* Seção "Sobre mim" */
 .section-about {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-    padding: 1rem;
-    gap: 1rem;
-    margin: 0.5rem;
-    border-radius: 8px;
-    color: #fff;
-    background-color: #08ad1650;
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
 }
 
 .section-about h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
 
 .section-about p {
     font-size: 1rem;
-    background-color: rgba(0, 0, 0, 0.548);
-    padding: 8px;
-    border-radius: 8px;
+    line-height: 1.5;
 }
 
+/* Botões de redes sociais */
 .list-button {
+    margin-top: 30px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    margin-top: 2rem;
+    gap: 15px;
 }
 
- button {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 200px;
-    padding: 0.6rem 0.8rem;
-    font-size: 1rem;
-    background-color: #fff;
-    color: #000;
-    font-weight: 700;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-a{
+.list-button a {
     text-decoration: none;
 }
-.icon{
-    margin-left: auto;
-    margin-right: 8px;
+
+.list-button button {
+    background: #1f2937;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    width: 200px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: auto;
+    border: 1px solid white;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
+.list-button button:hover {
+    background: #c4c9d1;
+    transform: scale(1.05);
+}
+
+/* Ícones */
+.icon {
+    font-size: 1.2rem;
+}
+
+
+
+/* Seção de serviços */
 .section-services {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    padding: 1rem;
-    margin-top: 2rem;
-    color: #fff;
-    background-color: #002e04;
-    border-radius: 8px;
+    margin-top: 40px;
+    width: 90%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .section-services h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
 
 .section-services ul {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    gap: 10px;
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
 
-@media (min-width: 768px) {
-    .container-profile {
-        flex-direction: row;
-        text-align: left;
-    }
+.section-services li {
+    font-size: 1rem;
+    margin: 8px 0;
+}
 
-    .img-profile {
-        width: 6rem;
-        height: 6rem;
-        margin-left: 1rem;
+/* Animação de fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
     }
-
-    .section-services ul {
-        flex-direction: row;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-@media (min-width: 1024px) {
-    .main {
-        padding: 2rem;
-    }
-
+/* Responsividade */
+@media (max-width: 600px) {
     .title {
-        font-size: 2.5rem;
-    }
-
-    .section-about h3,
-    .section-services h3 {
         font-size: 2rem;
     }
 
-    .section-about p {
-        font-size: 1.1rem;
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .list-button {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 }
