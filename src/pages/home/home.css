@@ -4,8 +4,10 @@ body {
     background-size: cover;
     color: #fff;
     margin: 0;
-    padding: 0;
-    background:linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+    margin-bottom: 8px;
+    background:linear-gradient(195deg,  #2C5364,  #203A43, #2C5364, #2C5364);
+    background-repeat: repeat;
+    
 }
 
 /* Manter outros estilos conforme necessário */
@@ -135,10 +137,10 @@ body {
 
 /* Seção de serviços */
 .section-services {
-    margin-top: 40px;
+    margin-top: 10px;
     width: 90%;
     max-width: 600px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(15, 15, 15, 0.549);
     padding: 20px;
     border-radius: 10px;
 }
