@@ -4,7 +4,6 @@ body {
     background-size: cover;
     color: #fff;
     margin: 0;
-    margin-bottom: 8px;
     background:linear-gradient(195deg,  #2C5364,  #203A43, #2C5364, #2C5364);
     background-repeat: repeat;
     
@@ -20,7 +19,6 @@ body {
     align-items: center;
     text-align: center;
     padding: 8px;
-    height: 100vh;
     
 }
 
