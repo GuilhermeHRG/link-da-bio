@@ -37,6 +37,7 @@ function Home() {
                 <h3>Serviços</h3>
                 <ul>
                     <li>Landing Pages</li>
+                    <li>Sites Institucionais</li>
                     <li>Páginas de Captura</li>
                     <li>Páginas de Lançamento</li>
                     <li>UX/UI Design</li>
