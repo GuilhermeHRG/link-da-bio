@@ -49,6 +49,9 @@ function Home() {
                     <li>UX/UI Design</li>
                 </ul>
             </section>
+            <div>
+                <br />
+            </div>
         </div>
     );
 }
