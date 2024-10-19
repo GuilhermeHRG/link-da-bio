@@ -1,3 +1,4 @@
+// src/components/Home.jsx
 import profile from '../../assets/profile.jpg';
 import './home.css';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -5,7 +6,9 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
+
 function Home() {
+
     return (
         <div className="main">
             <div className="container-profile">
@@ -15,6 +18,7 @@ function Home() {
                     <h2 className="subtitle">Desenvolvedor Web</h2>
                 </div>
             </div>
+            <iframe className="cardMsc " src="https://open.spotify.com/embed/track/4JZsOwl781NfirgQwQJbFP?utm_source=generator&theme=0"  frameBorder="0"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             <section className='section-about'>
                 <h3>Sobre mim</h3>
                 <p>Olá! Meu nome é Guilherme, tenho 22 anos e moro em Ivaiporã PR. Comigo, sua criatividade vira realidade digital.</p>
@@ -33,6 +37,8 @@ function Home() {
                     <button>Instagram <InstagramIcon className='icon' /></button>
                 </a>
             </section>
+            
+                   
             <section className='section-services'>
                 <h3>Serviços</h3>
                 <ul>
