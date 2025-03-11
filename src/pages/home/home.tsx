@@ -27,7 +27,7 @@ useEffect(() => {
     fetch('https://api.github.com/users/GuilhermeHRG/repos', {
         method: 'GET',
         headers: {
-            'Authorization': 'token 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'
+            'Authorization': 'token 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'
         }
     })
     .then(response => response.json())
