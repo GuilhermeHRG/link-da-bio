@@ -19,7 +19,7 @@ function Home() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalRepos, setTotalRepos] = useState(0);
 
-    const reposPerPage = 5; // Número de repositórios por página
+    const reposPerPage = 6; // Número de repositórios por página
 
     useEffect(() => {
         // Fetch para pegar os repositórios
@@ -108,19 +108,32 @@ function Home() {
             <section className="section social">
                 <h3 className="section-title">Conecte-se comigo</h3>
                 <div className="social-links">
-                    <a href="https://wa.me/5543996138645" target="_blank" rel="noopener noreferrer" className="social-icon whatsapp">
-                        <FaWhatsapp size={24} />
-                    </a>
-                    <a href="https://github.com/GuilhermeHRG" target="_blank" rel="noopener noreferrer" className="social-icon github">
-                        <FaGithub size={24} />
-                    </a>
-                    <a href="https://www.linkedin.com/in/guilhermehrg/" target="_blank" rel="noopener noreferrer" className="social-icon linkedin">
-                        <FaLinkedin size={24} />
-                    </a>
-                    <a href="https://www.instagram.com/guilherme.guelere/" target="_blank" rel="noopener noreferrer" className="social-icon instagram">
-                        <FaInstagram size={24} />
-                    </a>
-                </div>
+    <div className="social-item">
+        <a href="https://wa.me/5543996138645" target="_blank" rel="noopener noreferrer" className="social-icon whatsapp">
+            <FaWhatsapp size={24} />
+        </a>
+        <p className="social-username">(43) 9 9613-8645</p>
+    </div>
+    <div className="social-item">
+        <a href="https://github.com/GuilhermeHRG" target="_blank" rel="noopener noreferrer" className="social-icon github">
+            <FaGithub size={24} />
+        </a>
+        <p className="social-username">@GuilhermeHRG</p>
+    </div>
+    <div className="social-item">
+        <a href="https://www.linkedin.com/in/guilhermehrg/" target="_blank" rel="noopener noreferrer" className="social-icon linkedin">
+            <FaLinkedin size={24} />
+        </a>
+        <p className="social-username">@guilhermehrg</p>
+    </div>
+    <div className="social-item">
+        <a href="https://www.instagram.com/guilherme.guelere/" target="_blank" rel="noopener noreferrer" className="social-icon instagram">
+            <FaInstagram size={24} />
+        </a>
+        <p className="social-username">@guilherme.guelere</p>
+    </div>
+</div>
+
             </section>
 
             {/* Rodapé */}

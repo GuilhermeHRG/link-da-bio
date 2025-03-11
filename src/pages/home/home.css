@@ -64,6 +64,7 @@ body {
     text-transform: uppercase;
     color: #e2e8f0;
     margin-top: 8px;
+    margin-bottom: 10px;
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
     font-family: 'Orbitron', sans-serif;
 }
@@ -152,24 +153,23 @@ body {
     color: white;
 }
 
-/* Redes sociais */
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
+    align-items: center;
+    gap: 16px; /* Espaçamento entre os itens */
 }
 
-/* Ícones sociais */
-.social-icon {
-    font-size: 1.8rem;
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+.social-item {
+    text-align: center;
 }
 
-/* Cores ao passar o mouse */
-.social-icon:hover {
-    transform: scale(1.2);
+.social-username {
+    font-size: 14px;  /* Ajusta o tamanho da fonte */
+    color: #fff;   /* Cor do texto, você pode mudar para qualquer cor */
+    margin-top: 8px;  /* Espaço entre o ícone e o nome de usuário */
 }
+
 
 .whatsapp:hover { color: #25D366; }
 .github:hover { color: #333; }
@@ -193,6 +193,7 @@ body {
     justify-content: center;
     gap: 1rem;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .pagination button {
@@ -226,12 +227,11 @@ body {
 /* Estilo para dispositivos móveis */
 @media (max-width: 768px) {
     .pagination {
-        flex-direction: column;
         gap: 0.5rem;
     }
     .pagination button {
         padding: 0.5rem 2rem;
-        font-size: 1.1rem;
+        font-size: 0.6rem;
     }
 }
 
