@@ -17,30 +17,30 @@ interface Repo {
 
 function Home() {
     const [repos, setRepos] = useState<Repo[]>([]);
-const [currentPage, setCurrentPage] = useState(1);
-const [totalRepos, setTotalRepos] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalRepos, setTotalRepos] = useState(0);
 
-const reposPerPage = 6; // Número de repositórios por página
+    const reposPerPage = 6; // Número de repositórios por página
 
-useEffect(() => {
-    // Fetch para pegar os repositórios
-    fetch('https://api.github.com/users/GuilhermeHRG/repos', {
-        method: 'GET',
-    })
-    .then(response => response.json())
-    .then((data: Repo[]) => {
-        // Filtra os repositórios com estrelas e não forks
-        const filteredRepos = data
-            .filter((repo) => !repo.fork && repo.stargazers_count > 0) // Remove forks e filtra apenas repositórios com estrelas
-            .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()); // Ordena por data de criação
+    useEffect(() => {
+        // Fetch para pegar os repositórios
+        fetch('https://api.github.com/users/GuilhermeHRG/repos', {
+            method: 'GET',
+        })
+            .then(response => response.json())
+            .then((data: Repo[]) => {
+                // Filtra os repositórios com estrelas e não forks
+                const filteredRepos = data
+                    .filter((repo) => !repo.fork && repo.stargazers_count > 0) // Remove forks e filtra apenas repositórios com estrelas
+                    .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()); // Ordena por data de criação
 
-        setTotalRepos(filteredRepos.length); // Total de repositórios
-        // Pagina os repositórios
-        const paginatedRepos = filteredRepos.slice((currentPage - 1) * reposPerPage, currentPage * reposPerPage);
-        setRepos(paginatedRepos);
-    })
-    .catch(error => console.error('Erro ao buscar repositórios:', error));
-}, [currentPage]); // Recarrega a lista de repositórios quando a página muda
+                setTotalRepos(filteredRepos.length); // Total de repositórios
+                // Pagina os repositórios
+                const paginatedRepos = filteredRepos.slice((currentPage - 1) * reposPerPage, currentPage * reposPerPage);
+                setRepos(paginatedRepos);
+            })
+            .catch(error => console.error('Erro ao buscar repositórios:', error));
+    }, [currentPage]); // Recarrega a lista de repositórios quando a página muda
 
     // Função para mudar de página
     const changePage = (newPage: number) => {
@@ -87,8 +87,11 @@ useEffect(() => {
                     {repos.length > 0 ? (
                         repos.map((repo) => (
                             <div key={repo.id} className="project-card">
-                                <h4>{repo.name}</h4>
-                                <h5>{repo.language}</h5>
+                                    <h5>{repo.language}</h5>
+                                <div className='project-title'>
+
+                                    <h4>{repo.name}</h4>
+                                </div>
                                 <p>{repo.description || "Sem descrição disponível"}</p>
                                 <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="project-link">
                                     Ver no GitHub
@@ -112,31 +115,31 @@ useEffect(() => {
             <section className="section social">
                 <h3 className="section-title">Conecte-se comigo</h3>
                 <div className="social-links">
-    <div className="social-item">
-        <a href="https://wa.me/5543996138645" target="_blank" rel="noopener noreferrer" className="social-icon whatsapp">
-            <FaWhatsapp size={24} />
-        </a>
-        <p className="social-username">(43) 9 9613-8645</p>
-    </div>
-    <div className="social-item">
-        <a href="https://github.com/GuilhermeHRG" target="_blank" rel="noopener noreferrer" className="social-icon github">
-            <FaGithub size={24} />
-        </a>
-        <p className="social-username">@GuilhermeHRG</p>
-    </div>
-    <div className="social-item">
-        <a href="https://www.linkedin.com/in/guilhermehrg/" target="_blank" rel="noopener noreferrer" className="social-icon linkedin">
-            <FaLinkedin size={24} />
-        </a>
-        <p className="social-username">@guilhermehrg</p>
-    </div>
-    <div className="social-item">
-        <a href="https://www.instagram.com/guilherme.guelere/" target="_blank" rel="noopener noreferrer" className="social-icon instagram">
-            <FaInstagram size={24} />
-        </a>
-        <p className="social-username">@guilherme.guelere</p>
-    </div>
-</div>
+                    <div className="social-item">
+                        <a href="https://wa.me/5543996138645" target="_blank" rel="noopener noreferrer" className="social-icon whatsapp">
+                            <FaWhatsapp size={24} />
+                        </a>
+                        <p className="social-username">(43) 9 9613-8645</p>
+                    </div>
+                    <div className="social-item">
+                        <a href="https://github.com/GuilhermeHRG" target="_blank" rel="noopener noreferrer" className="social-icon github">
+                            <FaGithub size={24} />
+                        </a>
+                        <p className="social-username">@GuilhermeHRG</p>
+                    </div>
+                    <div className="social-item">
+                        <a href="https://www.linkedin.com/in/guilhermehrg/" target="_blank" rel="noopener noreferrer" className="social-icon linkedin">
+                            <FaLinkedin size={24} />
+                        </a>
+                        <p className="social-username">@guilhermehrg</p>
+                    </div>
+                    <div className="social-item">
+                        <a href="https://www.instagram.com/guilherme.guelere/" target="_blank" rel="noopener noreferrer" className="social-icon instagram">
+                            <FaInstagram size={24} />
+                        </a>
+                        <p className="social-username">@guilherme.guelere</p>
+                    </div>
+                </div>
 
             </section>
 

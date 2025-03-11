@@ -94,6 +94,9 @@ body {
     padding: 12px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     text-align: start;
     padding-left: 20%;
     transition: background 0.3s ease-in-out;
@@ -110,6 +113,27 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
 }
+
+.project-title {
+    display: flex;
+    flex-direction: column; /* Empilha os itens em duas linhas */
+     /* Alinha os itens à esquerda, se necessário */
+}
+
+.project-title h4 {
+    margin-bottom: 5px; /* Ajusta o espaçamento entre as linhas */
+    font-size: 16px; 
+    color: #000; /* Cor do nome do repositório */
+}
+
+ h5 {
+    width: 100%;
+    text-align: end;
+    margin-bottom: 20px; 
+    font-size: 14px; /* Ajusta o tamanho da linguagem */
+    color: #61DAFB; /* Cor para a linguagem, como exemplo */
+}
+
 
 .project-card {
     padding: 20px;
@@ -210,6 +234,7 @@ body {
 .pagination button:hover:not([disabled]) {
     background-color:rgb(74, 79, 85); /* fundo ao passar o mouse */
     transform: scale(1.05); /* efeito de aumento ao passar o mouse */
+    color: white;
 }
 
 .pagination button:disabled {
