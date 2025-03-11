@@ -18,7 +18,6 @@ function Home() {
                     <h2 className="subtitle">Desenvolvedor Web</h2>
                 </div>
             </div>
-            <iframe className="cardMsc " src="https://open.spotify.com/embed/track/4JZsOwl781NfirgQwQJbFP?utm_source=generator&theme=0"  frameBorder="0"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             <section className='section-about'>
                 <h3>Sobre mim</h3>
                 <p>Olá! Meu nome é Guilherme, tenho 22 anos e moro em Ivaiporã PR. Comigo, sua criatividade vira realidade digital.</p>
@@ -35,7 +34,7 @@ function Home() {
                 </a>
                 <a href="https://www.instagram.com/guilherme.guelere/" target="_blank" rel="noopener noreferrer">
                     <button>Instagram <InstagramIcon className='icon' /></button>
-                </a>
+                </a>    
             </section>
             
                    
