@@ -92,7 +92,7 @@ body {
 .skill-list li {
     font-size: 1.2rem;
     padding: 12px;
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(6, 9, 16, 0.8), rgba(16, 28, 48, 0.9));
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -137,7 +137,8 @@ body {
 
 .project-card {
     padding: 20px;
-    background: rgba(255, 255, 255, 0.12);
+    background: linear-gradient(135deg, rgba(6, 9, 16, 0.8), rgba(16, 28, 48, 0.9));
+    box-shadow: 0px 0px 15px rgba(232, 231, 231, 0.31);
     border-radius: 12px;
     text-align: center;
     transition: transform 0.3s ease, background 0.3s ease;
@@ -164,7 +165,7 @@ body {
     display: inline-block;
     margin-top: 10px;
     padding: 8px 15px;
-    background: #61DAFB;
+    background:#0ea5e9;
     color: #0f172a;
     font-weight: bold;
     text-decoration: none;

@@ -20,29 +20,25 @@ function Home() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalRepos, setTotalRepos] = useState(0);
 
-    const reposPerPage = 6; // Número de repositórios por página
+    const reposPerPage = 6; 
 
     useEffect(() => {
-        // Fetch para pegar os repositórios
         fetch('https://api.github.com/users/GuilhermeHRG/repos', {
             method: 'GET',
         })
             .then(response => response.json())
             .then((data: Repo[]) => {
-                // Filtra os repositórios com estrelas e não forks
                 const filteredRepos = data
                     .filter((repo) => !repo.fork && repo.stargazers_count > 0) // Remove forks e filtra apenas repositórios com estrelas
                     .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()); // Ordena por data de criação
 
-                setTotalRepos(filteredRepos.length); // Total de repositórios
-                // Pagina os repositórios
+                setTotalRepos(filteredRepos.length); 
                 const paginatedRepos = filteredRepos.slice((currentPage - 1) * reposPerPage, currentPage * reposPerPage);
                 setRepos(paginatedRepos);
             })
             .catch(error => console.error('Erro ao buscar repositórios:', error));
-    }, [currentPage]); // Recarrega a lista de repositórios quando a página muda
+    }, [currentPage]); 
 
-    // Função para mudar de página
     const changePage = (newPage: number) => {
         if (newPage >= 1 && newPage <= Math.ceil(totalRepos / reposPerPage)) {
             setCurrentPage(newPage);
