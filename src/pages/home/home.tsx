@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import profile from '../../assets/profile.jpg';
 import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp, FaHtml5, FaReact, FaNodeJs, FaFigma, FaSearch, FaMobileAlt, FaBriefcase, FaBook } from 'react-icons/fa';
 import './home.css';
-import { FaBookAtlas } from 'react-icons/fa6';
 
 interface Repo {
     id: number;
