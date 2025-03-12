@@ -3,7 +3,6 @@ import profile from '../../assets/profile.jpg';
 import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp, FaHtml5, FaReact, FaNodeJs, FaFigma, FaSearch, FaMobileAlt } from 'react-icons/fa';
 import './home.css';
 
-// Definição da interface para os repositórios do GitHub
 interface Repo {
     id: number;
     name: string;
@@ -15,29 +14,52 @@ interface Repo {
     language: string;
 }
 
+const CACHE_KEY = 'github_repos';
+const CACHE_EXPIRATION = 3600 * 1000; // 1 hora em milissegundos
+
 function Home() {
     const [repos, setRepos] = useState<Repo[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalRepos, setTotalRepos] = useState(0);
-
-    const reposPerPage = 6; 
+    const reposPerPage = 6;
 
     useEffect(() => {
-        fetch('https://api.github.com/users/GuilhermeHRG/repos', {
-            method: 'GET',
-        })
-            .then(response => response.json())
-            .then((data: Repo[]) => {
-                const filteredRepos = data
-                    .filter((repo) => !repo.fork && repo.stargazers_count > 0) // Remove forks e filtra apenas repositórios com estrelas
-                    .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()); // Ordena por data de criação
+        const fetchRepos = async () => {
+            const cachedData = localStorage.getItem(CACHE_KEY);
+            if (cachedData) {
+                const { timestamp, data } = JSON.parse(cachedData);
+                if (Date.now() - timestamp < CACHE_EXPIRATION) {
+                    console.log('Usando dados do cache');
+                    setRepos(paginate(data, currentPage, reposPerPage));
+                    setTotalRepos(data.length);
+                    return;
+                }
+            }
 
-                setTotalRepos(filteredRepos.length); 
-                const paginatedRepos = filteredRepos.slice((currentPage - 1) * reposPerPage, currentPage * reposPerPage);
-                setRepos(paginatedRepos);
-            })
-            .catch(error => console.error('Erro ao buscar repositórios:', error));
-    }, [currentPage]); 
+            try {
+                console.log('Buscando novos dados da API...');
+                const response = await fetch('https://api.github.com/users/GuilhermeHRG/repos');
+                const data: Repo[] = await response.json();
+
+                const filteredRepos = data
+                    .filter(repo => !repo.fork && repo.stargazers_count > 0)
+                    .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+
+                localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: filteredRepos }));
+
+                setRepos(paginate(filteredRepos, currentPage, reposPerPage));
+                setTotalRepos(filteredRepos.length);
+            } catch (error) {
+                console.error('Erro ao buscar repositórios:', error);
+            }
+        };
+
+        fetchRepos();
+    }, [currentPage]);
+
+    const paginate = (data: Repo[], page: number, perPage: number) => {
+        return data.slice((page - 1) * perPage, page * perPage);
+    };
 
     const changePage = (newPage: number) => {
         if (newPage >= 1 && newPage <= Math.ceil(totalRepos / reposPerPage)) {
@@ -47,14 +69,12 @@ function Home() {
 
     return (
         <div className="home-container">
-            {/* Perfil */}
             <header className="profile-container">
                 <img src={profile} alt="Perfil" className="profile-image" />
                 <h1 className="name">Guilherme Guelere</h1>
                 <h2 className="subtitle">Desenvolvedor Web</h2>
             </header>
 
-            {/* Sobre mim */}
             <section className="section-about">
                 <h3 className="section-title">Sobre mim</h3>
                 <p>
@@ -63,7 +83,6 @@ function Home() {
                 </p>
             </section>
 
-            {/* Habilidades */}
             <section className="section skills">
                 <h3 className="section-title">Habilidades</h3>
                 <ul className="skill-list">
@@ -76,16 +95,14 @@ function Home() {
                 </ul>
             </section>
 
-            {/* Projetos dinâmicos */}
             <section className="section projects">
                 <h3 className="section-title">Projetos</h3>
                 <div className="project-grid">
                     {repos.length > 0 ? (
-                        repos.map((repo) => (
+                        repos.map(repo => (
                             <div key={repo.id} className="project-card">
-                                    <h5>{repo.language}</h5>
+                                <h5>{repo.language}</h5>
                                 <div className='project-title'>
-
                                     <h4>{repo.name}</h4>
                                 </div>
                                 <p>{repo.description || "Sem descrição disponível"}</p>
@@ -100,14 +117,12 @@ function Home() {
                 </div>
             </section>
 
-            {/* Paginação */}
             <div className="pagination">
                 <button onClick={() => changePage(currentPage - 1)} disabled={currentPage === 1}>Anterior</button>
                 <span>Página {currentPage}</span>
                 <button onClick={() => changePage(currentPage + 1)} disabled={currentPage === Math.ceil(totalRepos / reposPerPage)}>Próxima</button>
             </div>
 
-            {/* Redes Sociais */}
             <section className="section social">
                 <h3 className="section-title">Conecte-se comigo</h3>
                 <div className="social-links">
@@ -136,10 +151,8 @@ function Home() {
                         <p className="social-username">@guilherme.guelere</p>
                     </div>
                 </div>
-
             </section>
 
-            {/* Rodapé */}
             <footer className="footer">© {new Date().getFullYear()} Guilherme Guelere - Elevando sua presença digital.</footer>
         </div>
     );
