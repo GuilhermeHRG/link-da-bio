@@ -89,7 +89,7 @@ function Home() {
                 <ul className="skill-list">
                     <li><FaHtml5 color="#E34F26" size={20} /> HTML, CSS, JavaScript</li>
                     <li><FaReact color="#61DAFB" size={20} /> React.js, Next.js</li>
-                    <li><FaNodeJs color="#83CD29" size={20} /> Node.js, Express.js</li>
+                    <li><FaNodeJs color="#83CD29" size={20} /> Node.js</li>
                     <li><FaFigma color="#F24E1E" size={20} /> UI/UX Design</li>
                     <li><FaSearch color="#FFBA00" size={20} /> SEO</li>
                     <li><FaMobileAlt color="#0088cc" size={20} /> Sites Responsivos</li>
