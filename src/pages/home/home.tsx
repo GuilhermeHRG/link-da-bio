@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import profile from '../../assets/profile.jpg';
-import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp, FaHtml5, FaReact, FaNodeJs, FaFigma, FaSearch, FaMobileAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp, FaHtml5, FaReact, FaNodeJs, FaFigma, FaSearch, FaMobileAlt, FaBriefcase, FaBook } from 'react-icons/fa';
 import './home.css';
+import { FaBookAtlas } from 'react-icons/fa6';
 
 interface Repo {
     id: number;
@@ -83,6 +84,7 @@ function Home() {
                 </p>
             </section>
 
+
             <section className="section skills">
                 <h3 className="section-title">Habilidades</h3>
                 <ul className="skill-list">
@@ -117,12 +119,58 @@ function Home() {
                 </div>
             </section>
 
+
             <div className="pagination">
                 <button onClick={() => changePage(currentPage - 1)} disabled={currentPage === 1}>Anterior</button>
                 <span>Página {currentPage}</span>
                 <button onClick={() => changePage(currentPage + 1)} disabled={currentPage === Math.ceil(totalRepos / reposPerPage)}>Próxima</button>
             </div>
 
+            <section className="section-exp">
+                <h3 className="section-title">Experiência Profissional</h3>
+
+                <div className="card-exp">
+                    <div className="icon-wrapper">
+                        <FaBriefcase className="icon" />
+                    </div>
+                    <div className="exp-content">
+                        <h4>Escritório Visão</h4>
+                        <span className="exp-time">2018 - 2023</span>
+                        <p>
+                            Trabalhei por 5 anos exercendo as funções de Office Boy, Arquivista de documentos e Auxiliar de Escritório.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="card-exp">
+                    <div className="icon-wrapper">
+                        <FaBriefcase className="icon" />
+                    </div>
+                    <div className="exp-content">
+                        <h4>Gerencial Software</h4>
+                        <span className="exp-time">2023 - Atual</span>
+                        <p>
+                            Atuei por 1 ano como Help Desk e atualmente sou Programador Frontend Jr.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section className="section-exp">
+                <h3 className="section-title">Formação</h3>
+
+                <div className="card-exp">
+                    <div className="icon-wrapper">
+                        <FaBook className="icon" />
+                    </div>
+                    <div className="exp-content">
+                        <h4>Instituto Federal do Paraná - IFPR</h4>
+                        <span className="exp-time">2021 - 2025</span>
+                        <p>
+                            Cursando 8° Semestre de Sistemas de Informação
+                        </p>
+                    </div>
+                </div>
+            </section>
             <section className="section social">
                 <h3 className="section-title">Conecte-se comigo</h3>
                 <div className="social-links">
