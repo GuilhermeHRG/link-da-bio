@@ -1,494 +1,261 @@
-/* Importando fonte futurista */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+/* Estilo base com foco profissional */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-/* Estilização global */
+:root {
+  --primary: #0ea5e9;
+  --bg-dark: #0f172a;
+  --bg-light: #1e293b;
+  --text-light: #e2e8f0;
+  --text-muted: #94a3b8;
+  --card-bg: rgba(255, 255, 255, 0.03);
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-    color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #0f172a, #1e293b);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+  background: linear-gradient(135deg, var(--bg-dark), var(--bg-light));
+  color: var(--text-light);
+  line-height: 1.6;
+  padding: 2rem 1rem;
 }
 
-/* Container principal */
 .home-container {
-    max-width: 900px;
-    gap: 8px;
-    padding: 20px;
-    text-align: center;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
-/* Estilização do perfil com efeito de vidro */
 .profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px 30px;
-    border-radius: 15px;
-    background-image: url('https://img.freepik.com/vetores-gratis/numeros-de-queda-digitais-do-codigo-binario-do-estilo-da-matriz-fundo-azul_1017-37387.jpg?t=st=1741720340~exp=1741723940~hmac=1432d9fae1c078dcddcd9f26390873aeee6964987d9447aea0541842e562df58&w=1060');
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Efeito hover no card do perfil */
-.profile-container:hover {
-    transform: scale(1.02);
+.profile-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://img.freepik.com/fotos-gratis/plano-de-fundo-de-programacao-com-pessoa-trabalhando-com-codigos-no-computador_23-2150010125.jpg?t=st=1745366190~exp=1745369790~hmac=13a1d512f5e722d65b47094f61c4639cb2cb0948b29aecf6329bfd3584e03934&w=996') no-repeat center center / cover;
+  opacity: 0.2;
+  z-index: 0;
 }
 
-/* Imagem de perfil */
+.profile-container > * {
+  z-index: 1;
+}
+
 .profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-    object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 4px solid var(--primary);
 }
 
-/* Títulos com efeito neon */
+.name {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
 .section-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #e2e8f0;
-    margin-top: 8px;
-    margin-bottom: 10px;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-    font-family: 'Orbitron', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-light);
 }
 
-/* Sobre mim */
-.section-about {
-    background: linear-gradient(135deg, rgba(6, 9, 16, 0.8), rgba(16, 28, 48, 0.9));
-    padding: 15px;
-    border-radius: 12px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+.section {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 2px 20px rgba(255, 255, 255, 0.05);
 }
 
-/* Lista de habilidades */
 .skill-list {
-    list-style: none;
-    padding: 10px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  list-style: none;
 }
 
-/* Melhorando a aparência dos itens */
 .skill-list li {
-    font-size: 1.2rem;
-    padding: 12px;
-    background: linear-gradient(135deg, rgba(6, 9, 16, 0.8), rgba(16, 28, 48, 0.9));
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-align: start;
-    padding-left: 20%;
-    transition: background 0.3s ease-in-out;
+  background: var(--bg-dark);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: 0.3s ease;
 }
 
-/* Efeito ao passar o mouse */
 .skill-list li:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
+  background: var(--primary);
+  color: #fff;
 }
 
 .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
-
-.project-title {
-    display: flex;
-    flex-direction: column; /* Empilha os itens em duas linhas */
-     /* Alinha os itens à esquerda, se necessário */
-}
-
-.project-title h4 {
-    margin-bottom: 5px; /* Ajusta o espaçamento entre as linhas */
-    font-size: 16px; 
-    color: #000; /* Cor do nome do repositório */
-}
-
- h5 {
-    width: 100%;
-    text-align: end;
-    margin-bottom: 20px; 
-    font-size: 14px; /* Ajusta o tamanho da linguagem */
-    color: #61DAFB; /* Cor para a linguagem, como exemplo */
-}
-
 
 .project-card {
-    padding: 20px;
-    background: linear-gradient(135deg, rgba(6, 9, 16, 0.8), rgba(16, 28, 48, 0.9));
-    box-shadow: 0px 0px 15px rgba(232, 231, 231, 0.31);
-    border-radius: 12px;
-    text-align: center;
-    transition: transform 0.3s ease, background 0.3s ease;
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 .project-card:hover {
-    transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .project-card h4 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #e2e8f0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .project-card p {
-    font-size: 1rem;
-    color: #cbd5e1;
-    min-height: 50px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  min-height: 60px;
 }
 
 .project-link {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 15px;
-    background:#0ea5e9;
-    color: #0f172a;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: background 0.3s ease;
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--primary);
+  font-weight: 600;
 }
 
 .project-link:hover {
-    background: #0ea5e9;
-    color: white;
+  text-decoration: underline;
 }
 
-.section-exp {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 30px;
-    background: linear-gradient(135deg, rgba(6, 9, 16, 0.8), rgba(16, 28, 48, 0.9));
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
-}
-
-
-.exp-content {
-    color: white;
-}
 .card-exp {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: rgba(6, 13, 24, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  margin-top: 1rem;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
 .card-exp:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .icon-wrapper {
-    width: 50px;
-    height: 50px;
-    background: #0ea5e9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
+  min-width: 48px;
+  min-height: 48px;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
 .icon {
-    color: #fff;
-    font-size: 1.5rem;
-}
-
-.exp-content {
-    flex: 1;
+  color: white;
+  font-size: 1.25rem;
 }
 
 .exp-content h4 {
-    font-size: 1.5rem;
-    color: #0ea5e9;
-    margin-bottom: 5px;
+  font-size: 1.25rem;
+  color: var(--primary);
+  font-weight: 600;
 }
 
 .exp-time {
-    display: block;
-    font-size: 0.9rem;
-    color: rgb(218, 217, 217);
-    margin-bottom: 10px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0.25rem 0;
 }
-
-.exp-content p {
-    font-size: 1rem;
-    color: rgb(218, 217, 217);
-    line-height: 1.6;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .card-exp {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 15px;
-    }
-
-    .icon-wrapper {
-        width: 40px;
-        height: 40px;
-    }
-
-    .icon {
-        font-size: 1.2rem;
-    }
-
-    .exp-content h4 {
-        font-size: 1.3rem;
-    }
-
-    .exp-time {
-        font-size: 0.85rem;
-    }
-
-    .exp-content p {
-        font-size: 0.95rem;
-    }
-}
-
-
 
 .social-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px; /* Espaçamento entre os itens */
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
-.social-item {
-    text-align: center;
+.social-icon {
+  font-size: 1.5rem;
+  color: var(--text-light);
+  transition: 0.3s ease;
 }
-
-.social-username {
-    font-size: 14px;  /* Ajusta o tamanho da fonte */
-    color: #fff;   /* Cor do texto, você pode mudar para qualquer cor */
-    margin-top: 8px;  /* Espaço entre o ícone e o nome de usuário */
-}
-
 
 .whatsapp:hover { color: #25D366; }
 .github:hover { color: #333; }
 .linkedin:hover { color: #0077B5; }
 .instagram:hover { color: #E4405F; }
 
-/* Rodapé */
+.social-username {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
 .footer {
-    margin-top: 50px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    text-align: center;
-    font-size: 1rem;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.15);
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+  opacity: 0.7;
+  padding: 1rem;
 }
 
 .pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
 .pagination button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 0.375rem; /* borda arredondada */
-    border: 1px solid #ccc; /* borda leve */
-    background-color: rgb(48, 50, 53); /* fundo claro */
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    cursor: pointer;
+  padding: 0.6rem 1.2rem;
+  background: var(--bg-dark);
+  border: 1px solid var(--primary);
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
-.pagination button:hover:not([disabled]) {
-    background-color:rgb(74, 79, 85); /* fundo ao passar o mouse */
-    transform: scale(1.05); /* efeito de aumento ao passar o mouse */
-    color: white;
+.pagination button:hover:not(:disabled) {
+  background: var(--primary);
 }
 
 .pagination button:disabled {
-    background-color: #edf2f7; /* fundo para botões desabilitados */
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-.pagination span {
-    font-size: 1rem;
-    font-weight: 500;
-    color: white;
-}
-
-/* Estilo para dispositivos móveis */
-@media (max-width: 768px) {
-    .pagination {
-        gap: 0.5rem;
-    }
-    .pagination button {
-        padding: 0.5rem 2rem;
-        font-size: 0.6rem;
-    }
-}
-
-/* Responsividade */
-@media (max-width: 1024px) {
-    .home-container {
-        max-width: 100%;
-        padding: 15px;
-    }
-
-    .profile-container {
-        padding: 40px 20px;
-    }
-
-    .profile-image {
-        width: 130px;
-        height: 130px;
-    }
-
-    .section-title {
-        font-size: 1.6rem;
-    }
-
-    .skill-list {
-        grid-template-columns: 1fr; /* Exibir habilidades em uma única coluna */
-        text-align: center;
-        padding-left: 0;
-    }
-
-    .skill-list li {
-        padding-left: 10%;
-    }
-
-    .project-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-
-    .social-links {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .footer {
-        font-size: 0.9rem;
-    }
-}
-
-/* Ajustes para telas menores (celulares) */
-@media (max-width: 768px) {
-    .profile-container {
-        padding: 30px 15px;
-    }
-
-    .profile-image {
-        width: 110px;
-        height: 110px;
-    }
-
-    .section-title {
-        font-size: 1.4rem;
-    }
-
-    .skill-list {
-        grid-template-columns: 1fr;
-        padding-left: 0;
-    }
-
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-card {
-        padding: 15px;
-    }
-
-    .social-links {
-        gap: 8px;
-    }
-
-    .social-icon {
-        font-size: 1.5rem;
-    }
-
-    .footer {
-        font-size: 0.8rem;
-        padding: 15px;
-    }
-}
-
-/* Ajustes para telas muito pequenas (exemplo: iPhone SE, Galaxy Fold) */
-@media (max-width: 480px) {
-    .profile-container {
-        padding: 20px;
-    }
-
-    .profile-image {
-        width: 100px;
-        height: 100px;
-    }
-
-    .name {
-        font-size: 1.4rem;
-    }
-
-    .subtitle {
-        font-size: 1rem;
-    }
-
-    .section-title {
-        font-size: 1.2rem;
-    }
-
-    .skill-list li {
-        font-size: 1rem;
-        padding: 10px;
-    }
-
-    .project-card h4 {
-        font-size: 1.2rem;
-    }
-
-    .project-card p {
-        font-size: 0.9rem;
-    }
-
-    .project-link {
-        padding: 6px 12px;
-        font-size: 0.9rem;
-    }
-
-    .footer {
-        font-size: 0.75rem;
-    }
+  opacity: 0.4;
+  cursor: not-allowed;
 }
